@@ -1,0 +1,43 @@
+{
+  "name": "Openload Saver",
+  "version": "0.3.0",
+  "description": "A openload.co panel for save the web resource to your account",
+  "homepage_url": "https://github.com/kedyy/openload4chrome",
+  "author": "Yifei Chang",
+  "icons": {
+    "16": "img/icon16.png",
+    "32": "img/icon32.png",
+    "48": "img/icon48.png",
+    "128": "img/icon128.png",
+    "256": "img/icon256.png"
+  },
+  "background": {
+    "scripts": [
+      "jquery.slim.js",
+      "background.js",
+      "openload.js",
+      "js-utils.js"
+    ]
+  },
+  "devtools_page": "devtools.html",
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
+  "browser_action": {
+    "default_icon": {
+      "38": "img/icon38.png"
+    },
+    "default_popup": "panel.html"
+  },
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "downloads",
+    "clipboardRead",
+    "storage",
+    "https://*.openload.co/"
+  ],
+  "minimum_chrome_version": "42",
+  "manifest_version": 2
+}

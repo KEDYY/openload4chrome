@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>Options</title>
+  <script src="jquery.slim.js"></script>
+  <script src="material-css.js"></script>
+
+  <script src="js-utils.js"></script>
+  <link href="material-css.css" type="text/css" rel="stylesheet"/>
+  <link href="options.css" type="text/css" rel="stylesheet"/>
+
+</head>
+<body>
+<script src="options.js"></script>
+<header>
+  <h1 class="mc-title">Options</h1>
+</header>
+<div class="mc-content notop">
+  <form>
+    <div class="mc-input mc-bg-darkgreen">
+      <input type="text | email | tel | number" id="user_id" pattern="[0-9a-z]{6,32}"
+             placeholder="FTP Username/API Login" title="Please Enter FTP Username/API Login" required="required"/>
+      <span class="mc-label mc-floating-label">Username/API Login</span>
+    </div>
+    <div class="mc-input mc-bg-darkgreen">
+      <input type="password" id="user_token" required="required" placeholder="FTP Password/API Key"
+             title="Please Enter FTP Password/API Key"/>
+      <span class="mc-label mc-floating-label">Password/API Key</span>
+    </div>
+    <div>
+      <a class="mc-button mc-button-icon mc-clickable mc-bg-darkyellow op_help" mc-action="help"
+         href="https://openload.co/account#usersettings" action="open-tab" target="_blank"></a>
+    </div>
+    <label class="mc-switcher mc-bg-darkgreen">
+      <input type="checkbox" id="reverse_list"/>
+      <span class="mc-switch-bg">
+        <span class="mc-switch"></span>
+      </span>
+      <span>Reverse order of lists</span>
+    </label>
+    <label class="mc-switcher mc-bg-darkgreen">
+      <input type="checkbox" id="hide_data"/>
+      <span class="mc-switch-bg">
+        <span class="mc-switch"></span>
+      </span>
+      <span>Hidden link</span>
+    </label>
+    <label class="mc-switcher mc-bg-darkgreen">
+      <input type="checkbox" id="sync" checked="checked"/>
+      <span class="mc-switch-bg">
+        <span class="mc-switch"></span>
+      </span>
+      <span>Sync to Chrome</span>
+    </label>
+    <label for="save">
+      <button type="button" id="save" class="mc-button mc-button-comb mc-bg-darkblue mc-clickable" mc-action="save">Save
+      </button>
+    </label>
+  </form>
+</div>
+<footer class="mc-footer">
+  <small id="extension_version"></small>
+
+  <p><a href="https://github.com/kedyy/openload4chrome" target="_blank">Source code</a></p>
+  <p><a href="https://github.com/kedyy/openload4chrome/issues" target="_blank">Report a bug</a></p>
+
+  <ul>
+    <li>Please close and reopen the devtools after updating options</li>
+    <li>The options are synced to your Chrome profile</li>
+    <li><a href="#" id="reset">Reset options to default</a></li>
+  </ul>
+  <div class="mc-notification-container">
+  </div>
+  <p class="hidden">Debug: <a href="panel.html" target="_blank">open panel.html</a></p>
+</footer>
+</body>
+</html>

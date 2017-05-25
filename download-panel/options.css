@@ -1,0 +1,15 @@
+body {
+    min-width: 320px;
+    min-height: 480px;
+}
+
+.notop {
+    top: 0;
+}
+
+.op_help {
+    width: 24px;
+    height: 24px;
+    background-position: 0 0;
+    margin-top: 18px;
+}

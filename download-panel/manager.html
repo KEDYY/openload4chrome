@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <title>Openload Uploader</title>
+  <script src="jquery.slim.js"></script>
+  <script src="material-css.js"></script>
+
+  <script src="js-utils.js"></script>
+  <script src="openload.js"></script>
+  <script src="file-manager.js"></script>
+  <link href="material-css.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div class="mc-content">
+  <ul mc-layout="list" id="folder_list">
+    <!--
+    <li class="mc-list-item">
+      <img src=""/>
+      <h1 class="mc-title">name</h1>
+      <p class="mc-text | mc-note">desc</p>
+    </li>
+    -->
+  </ul>
+  <div class="mc-card" >
+    <div class="mc-content" >
+      <h2 class="mc-subtitle" ></h2>
+      <p class="mc-text" ></p>
+    </div>
+    <div class="mc-footer" >
+      <a class="mc-button mc-button-icon mc-clickable" mc-action="download" ></a>
+      <a class="mc-button mc-button-icon mc-clickable" mc-action="refresh" ></a>
+      <a class="mc-button mc-button-icon mc-clickable" mc-action="delete" ></a>
+    </div>
+  </div>
+</div>
+<footer class="mc-footer">
+  <div class="mc-notification-container">
+  </div>
+</footer>
+</body>
+</html>
