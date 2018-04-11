@@ -13,3 +13,7 @@ body {
     background-position: 0 0;
     margin-top: 18px;
 }
+
+#logout {
+    float: right;
+}

@@ -54,7 +54,7 @@ function debug(t) {
   li.appendChild(document.createTextNode(t));
   list.appendChild(li);
 }
-var cou = 0;
+
 window.addEventListener('load', function () {
   var history = [];
 
@@ -67,9 +67,7 @@ window.addEventListener('load', function () {
     options = items;
     network_hidedata_checkbox.checked = options.hide_data;
   });
-  cou += 1;
-  console.log("load" + cou);
-  var user_info = document.getElementById('user_info');
+
   var url_input = document.getElementById('url');
   var header_input = document.getElementById('headers');
   var filename_input = document.getElementById('filename');
@@ -88,12 +86,13 @@ window.addEventListener('load', function () {
       header_input.value = headers;
     }
   });
-
+  $("body").addClass("mc-noscroll");
   getAccountInfo(function (result) {
+    $("body").removeClass("mc-noscroll");
     $('#loading').hide();
     $('#loaded').show();
-    user_info.children[0].textContent = result.result.email;
-    user_info.children[1].textContent = result.result.extid;
+    $('#user_email').text(result.result.email);
+    $('#user_email').siblings().hide();
   });
 
 
@@ -249,9 +248,9 @@ window.addEventListener('load', function () {
 
   url_input.addEventListener('keyup', keyup);
   filename_input.addEventListener('keyup', keyup);
-  download_button.addEventListener('click', download);
-  openload_button.addEventListener('click', remoteUpload);
-  saveas_button.addEventListener('click', saveas);
+  download_button.addEventListener('click', download, false);
+  openload_button.addEventListener('click', remoteUpload, false);
+  saveas_button.addEventListener('click', saveas, false);
   getFolder(null, function (result) {
     var folders = result.result.folders;
     folders.forEach(function (folder) {

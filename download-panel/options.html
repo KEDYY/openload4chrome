@@ -1,15 +1,15 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>Options</title>
-  <script src="jquery.slim.js"></script>
-  <script src="material-css.js"></script>
-
-  <script src="js-utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <link href="material-css.css" type="text/css" rel="stylesheet"/>
   <link href="options.css" type="text/css" rel="stylesheet"/>
 
+  <script src="lib/jquery.slim.js"></script>
+  <script src="lib/material-css.js"></script>
+  <script src="openload.js"></script>
+  <script src="js-utils.js"></script>
 </head>
 <body>
 <script src="options.js"></script>
@@ -18,19 +18,36 @@
 </header>
 <div class="mc-content notop">
   <form>
-    <div class="mc-input mc-bg-darkgreen">
-      <input type="text | email | tel | number" id="user_id" pattern="[0-9a-z]{6,32}"
-             placeholder="FTP Username/API Login" title="Please Enter FTP Username/API Login" required="required"/>
-      <span class="mc-label mc-floating-label">Username/API Login</span>
+    <div class="mc-card" id="info">
+      <div class="mc-header">
+        <img src="material-icons/mc-account-grey.png">
+        <h1 id="user_email" class="mc-title" style="text-transform: none"></h1>
+        <h2 id="user_apiId" class="mc-subtitle"></h2>
+        <div class="mc-divider"></div>
+        <div id="user_date" class="mc-text"></div>
+        <div id="user_storage" class="mc-text"></div>
+        <div id="user_balance" class="mc-text" mc-layout=""></div>
+        <label for="logout">
+          <button type="button" id="logout" class="mc-button mc-button-icon"
+                  mc-action="edit"></button>
+        </label>
+      </div>
     </div>
-    <div class="mc-input mc-bg-darkgreen">
-      <input type="password" id="user_token" required="required" placeholder="FTP Password/API Key"
-             title="Please Enter FTP Password/API Key"/>
-      <span class="mc-label mc-floating-label">Password/API Key</span>
-    </div>
-    <div>
-      <a class="mc-button mc-button-icon mc-clickable mc-bg-darkyellow op_help" mc-action="help"
-         href="https://openload.co/account#usersettings" action="open-tab" target="_blank"></a>
+    <div id="config">
+      <div class="mc-input mc-bg-darkgreen">
+        <input type="text | email | tel | number" id="user_id" pattern="[0-9a-z]{6,32}"
+               placeholder="FTP Username/API Login" title="Please Enter FTP Username/API Login" required="required"/>
+        <span class="mc-label mc-floating-label">Username/API Login</span>
+      </div>
+      <div class="mc-input mc-bg-darkgreen">
+        <input type="password" id="user_token" required="required" placeholder="FTP Password/API Key"
+               title="Please Enter FTP Password/API Key"/>
+        <span class="mc-label mc-floating-label">Password/API Key</span>
+      </div>
+      <div>
+        <a class="mc-button mc-button-icon mc-clickable mc-bg-darkyellow op_help" mc-action="help"
+           href="https://openload.co/account#usersettings" action="open-tab" target="_blank"></a>
+      </div>
     </div>
     <label class="mc-switcher mc-bg-darkgreen">
       <input type="checkbox" id="reverse_list"/>

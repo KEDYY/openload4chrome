@@ -1,10 +1,10 @@
 /**
- * This is the openload file api
- *
- * 1. getAccountInfo(id, key); vaild the user input api info
+ * This is the openload api
+ * 1. getAccountInfo(callback); vaild the user
  * 2. upload(link_address, headers);  `headers` may include `cookies` `referer` and so on;
  * 3. listFloder(current_floder)
  * 4. uploadLocalFile();
+ * @see https://openload.co/api
  */
 
 function exchange(url, callback) {
@@ -12,8 +12,8 @@ function exchange(url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
   xhr.onload = function () {
-    if (this.status == 200) {
-      console.log(this.responseText);
+    if (this.status >= 200 && this.status <= 210) {
+      console.debug(this.responseText);
       callback(JSON.parse(this.responseText));
     } else {
       console.error(this.responseText);
@@ -67,6 +67,14 @@ function addRemoteUpload(link, folderId, headers, callback) {
   exchange(url, callback);
 }
 
+function removeFile(fileId, callback) {
+  var svr = "https://api.openload.co/1/file/delete?login={login}&key={key}&file={file}";
+  if (!isConfigLogin()) {
+    return false;
+  }
+  var url = svr.format({login: localStorage.login, key: localStorage.token, file: fileId});
+  exchange(url, callback);
+}
 
 function getFolder(dir, callback) {
   var svr = "https://api.openload.co/1/file/listfolder?login={login}&key={key}";
@@ -80,7 +88,7 @@ function getFolder(dir, callback) {
   exchange(url, callback);
 }
 
-function fileStatus(fileId) {
+function fileStatus(fileId, callback) {
   var svr = "https://api.openload.co/1/file/info?file={file}&login={login}&key={key}";
   if (!isConfigLogin()) {
     return false;

@@ -65,4 +65,26 @@ document.addEventListener('DOMContentLoaded', function () {
       chrome.runtime.sendMessage({action: 'update-options', options: default_options});
     });
   });
+
+  if (isConfigLogin()) {
+    $("#config").hide();
+    $("#save").hide();
+    $("#info").show();
+    $("#logout").show();
+    getAccountInfo(function (result) {
+      $("body").removeClass("mc-noscroll");
+
+      $('#user_email').text(result.result.email);
+      $('#user_apiId').text(result.result.extid);
+      $('#user_date').text(result.result.signup_at);
+      $('#user_storage').text(result.result.storage_used);
+      $('#user_balance').text(result.result.balance);
+    });
+
+  } else {
+    $("#config").show();
+    $("#save").show();
+    $("#info").hide();
+    $("#logout").hide();
+  }
 });

@@ -13,13 +13,14 @@
   },
   "background": {
     "scripts": [
-      "jquery.slim.js",
+      "lib/jquery.slim.js",
+      "lib/material-css.js",
       "background.js",
       "openload.js",
       "js-utils.js"
     ]
   },
-  "devtools_page": "devtools.html",
+  //"devtools_page": "devtools.html",
   "options_ui": {
     "page": "options.html",
     "chrome_style": true
@@ -38,6 +39,7 @@
     "storage",
     "https://*.openload.co/"
   ],
+  //"default_locale": "en",
   "minimum_chrome_version": "42",
   "manifest_version": 2
 }

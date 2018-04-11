@@ -2,36 +2,50 @@
 <html>
 <head>
   <title>Openload Uploader</title>
-  <script src="jquery.slim.js"></script>
-  <script src="material-css.js"></script>
-
-  <script src="js-utils.js"></script>
-  <script src="panel.js"></script>
-  <script src="openload.js"></script>
-
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <link href="panel.css" type="text/css" rel="stylesheet">
   <link href="material-css.css" type="text/css" rel="stylesheet"/>
+
+  <script src="lib/jquery.slim.js"></script>
+  <script src="lib/material-css.js"></script>
+
+  <script src="js-utils.js"></script>
+  <script src="openload.js"></script>
 </head>
 <body>
-<div id="loading" class="mc-splash mc-bg-blue" style="padding-bottom: 100%">
+<div id="loading" class="mc-splash mc-bg-blue">
   <div class="mc-content">
     <img src="img/icon256.png"/>
     <div class="mc-spinner mc-color-white mc-bg-blue"></div>
   </div>
 </div>
 
-<header class="mc-header-content">
+<header class="mc-header-content mc-bg-white">
   <div class="right-addon" style="display:none">
     <a href="#" action="use-inspected-text"></a>
     <input type="search" id="filename" placeholder="NONE" pattern='^[^\t:*?"<>|]*$' spellcheck="false">
   </div>
+  <div class="mc-window-header">
+    <span>
+      <a href="https://openload.co" target="_blank"
+         style="background: url(img/logo.png) no-repeat left;background-size: 72px 16px; padding-right: 78px"> </a>
+    </span>
+
+    <span>
+      <a id="regitter" href="https://openload.co/register">register</a>
+      <a id="login" href="options.html">login</a>
+      <span id="user_email" class="" style="text-transform: none"
+            mc-action="scroll-down"></span>
+    </span>
+    <div class="mc-divider"></div>
+  </div>
 </header>
-<div id="loaded" class="mc-content">
-  <form>
-    <div class="mc-input mc-bg-darkpurple">
-      <input type="search" id="url" placeholder="http://" required="required">
+<div id="loaded" class="mc-content" style="top: 50px;">
+  <form name="addTask">
+    <label class="mc-input mc-bg-darkpurple">
+      <input type="url" id="url" pattern="^([hH][tT]|[fF])[tT][pP][sS]?://.*" required="required">
       <span class="mc-label">http://</span>
-    </div>
+    </label>
     <div class="mc-input mc-bg-darkpurple">
       <textarea id="headers" placeholder="cookies"></textarea>
       <label class="mc-label">Request Headers</label>
@@ -47,11 +61,13 @@
       <span class="mc-dropdown-menu" mc-layout="list"></span>
     </label>
     <label for="openload">
-      <button type="button" id="openload" class="mc-button mc-button-comb mc-bg-blue mc-clickable" mc-action="upload">Openload
+      <button type="submit" id="openload" class="mc-button mc-button-comb mc-bg-blue mc-clickable" mc-action="upload">
+        Openload
       </button>
     </label>
     <label for="download">
-      <button type="button" id="download" class="mc-button mc-button-comb mc-bg-darkblue mc-clickable" mc-action="download">Download
+      <button type="submit" id="download" class="mc-button mc-button-comb mc-bg-darkblue mc-clickable"
+              mc-action="download">Download
       </button>
     </label>
     <button id="saveas" style="display:none">Save As</button>
@@ -77,17 +93,9 @@
   </ul>
   <div class="mc-floating" style="display: none ;">
     <a class="mc-button mc-button-icon mc-clickable mc-button-raised" mc-action="scroll-top"
-       onclick="javascript:scrollUp()"></a>
+       id="scroll-to-up"></a>
     <a class="mc-button mc-button-icon mc-clickable mc-button-raised" mc-action="scroll-down"
-       onclick="javascript:scrollDown()"></a>
-  </div>
-
-  <div class="mc-accountinfo">
-    <header class="mc-" id="user_info">
-      <!--img src="" /-->
-      <h1 class="mc-title">User Email</h1>
-      <p class="mc-text | mc-note">User ID</p>
-    </header>
+       id="scroll-to-down"></a>
   </div>
 
   <div class="network">
@@ -150,6 +158,6 @@
   <div class="mc-notification-container">
   </div>
 </footer>
-
+<script src="panel.js"></script>
 </body>
 </html>

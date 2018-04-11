@@ -1,42 +1,45 @@
 body {
-  padding-bottom: 30px;
-  min-width: 320px;
+    padding-bottom: 30px;
+    min-width: 320px;
 }
+
 #scroll-to-top {
-  position: fixed;
-  bottom: 0;
-  padding: 3px 8px;
-  background-color: white;
-  border: 1px solid black;
-  border-bottom: 0;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+    position: fixed;
+    bottom: 0;
+    padding: 3px 8px;
+    background-color: white;
+    border: 1px solid black;
+    border-bottom: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .network, .history {
-  display: none;
+    display: none;
 }
+
 body[devtools] .network,
 body[history] .history {
-  display: block;
+    display: block;
 }
 
 #network_minsize {
-  width: 480px;
-  color: lightgray;
+    width: 480px;
+    color: lightgray;
 }
+
 #network_minsize.enabled {
-  color: black;
+    color: black;
 }
 
 #network_stats {
-  display: inline-block;
-  min-width: 120px;
-  margin-right: 10px;
+    display: inline-block;
+    min-width: 120px;
+    margin-right: 10px;
 }
 
 .network h3,
 .history h3 {
-  display: inline-block;
-  margin-right: 10px;
+    display: inline-block;
+    margin-right: 10px;
 }
